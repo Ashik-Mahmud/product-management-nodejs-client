@@ -7,6 +7,14 @@ const CreateProduct = () => {
         <form action="" className="form-wrapper">
           <h1>Create Product </h1>
           <div className="input-group">
+            <label htmlFor="buying-url">Product Buying URL</label>
+            <input
+              type="url"
+              placeholder="Product Buying URL"
+              id="buying-url"
+            />
+          </div>
+          <div className="input-group">
             <label htmlFor="name">Product Name</label>
             <input type="text" placeholder="Product Name" id="name" />
           </div>

@@ -40,3 +40,9 @@ li {
   max-width: min(100% - 2rem, 1200px);
   margin: auto;
 }
+.colorize {
+  color: var(--primary-color);
+}
+.cursor-pointer {
+  cursor: pointer;
+}

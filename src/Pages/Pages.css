@@ -1,3 +1,5 @@
+/* create product form css  */
+
 .form-wrapper {
   width: 100%;
   position: relative;
@@ -31,4 +33,29 @@
 }
 .form-wrapper h1 {
   margin-bottom: 1rem;
+}
+
+/* manage product  */
+
+.table-wrapper {
+  background-color: var(--primary-dark);
+  padding: 1rem;
+  margin: 1rem;
+  position: relative;
+}
+.table-wrapper table {
+  width: 100%;
+  text-align: left;
+  position: relative;
+  border-collapse: collapse;
+  margin: 1rem 0rem;
+}
+.table-wrapper table td,
+.table-wrapper table th {
+  padding: 0.4rem;
+  border-bottom: 1px solid #333;
+}
+.table-wrapper table td img {
+  width: 80px;
+  border-radius: 5px;
 }

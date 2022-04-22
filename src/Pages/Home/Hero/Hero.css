@@ -1,0 +1,50 @@
+/* hero  */
+.hero-content {
+  display: grid;
+  place-items: center;
+  padding: 6rem 0rem;
+  position: relative;
+}
+.hero-content .hero-text {
+  width: min(100% - 2rem, 800px);
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+.hero-text h2 {
+  font-size: 2rem;
+  margin: 1rem 0rem;
+}
+.hero-text .search {
+  background: var(--primary-dark);
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  border-radius: 5px;
+}
+.search input {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--accent-color);
+  font-size: 1rem;
+  font-family: var(--fonts);
+}
+.search-history {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  justify-content: center;
+  margin: 1rem 0rem;
+}
+.search-history li {
+  background: var(--primary-dark);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
