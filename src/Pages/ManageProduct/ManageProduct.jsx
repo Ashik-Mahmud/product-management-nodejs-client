@@ -1,4 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
@@ -13,6 +15,20 @@ const ManageProduct = () => {
     );
     setCurrentUserProducts(userProducts);
   }, [products]);
+
+  /* Handle delete items  */
+  const handleDeleteProduct = async (id) => {
+    console.log(id);
+    await axios.delete(`http://localhost:5000/products/${id}`).then((res) => {
+      if (res?.data?.acknowledged) {
+        toast.success("Delete products successfully done.");
+        const filterProduct = currentUserProducts.filter(
+          (product) => product._id !== id
+        );
+        setCurrentUserProducts(filterProduct);
+      }
+    });
+  };
 
   return (
     <div>
@@ -56,7 +72,12 @@ const ManageProduct = () => {
                       </span>
                     </td>
                     <td>
-                      <span className="btn btn-danger">Delete</span>
+                      <span
+                        onClick={() => handleDeleteProduct(product?._id)}
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </span>
                     </td>
                     <td>
                       <span className="colorize">Published</span>
