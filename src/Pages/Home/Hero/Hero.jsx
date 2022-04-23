@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Hero.css";
-const Hero = () => {
+const Hero = ({ handleSearch }) => {
+  const [search, setSearch] = useState("");
+
   return (
     <div>
       <div className="container">
@@ -8,8 +10,17 @@ const Hero = () => {
           <div className="hero-text">
             <h2>Search Your Product Here</h2>
             <div className="search">
-              <input type="search" placeholder="Search Your Product" />
-              <button className="btn btn-primary">Search</button>
+              <input
+                type="search"
+                onBlur={(event) => setSearch(event.target.value)}
+                placeholder="Search Your Product"
+              />
+              <button
+                className="btn btn-primary"
+                onClick={() => handleSearch(search)}
+              >
+                Search
+              </button>
             </div>
             <ul className="search-history">
               <span>People Search - </span>

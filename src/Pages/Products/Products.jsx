@@ -3,9 +3,9 @@ import Loader from "../../Components/Loader/Loader";
 import useProducts from "../../Hooks/useProducts";
 import Product from "./Product/Product";
 import "./Products.css";
-const Products = () => {
-  const { products, loading } = useProducts();
-  console.log(products);
+const Products = ({ products }) => {
+  const { loading } = useProducts();
+
   return (
     <section className="products">
       <div className="container">
@@ -32,7 +32,7 @@ const Products = () => {
               ))}
             </div>
           ) : (
-            <div>
+            <div style={{ textAlign: "center", padding: "4rem 0rem" }}>
               <h2>No Products Available</h2>
             </div>
           )

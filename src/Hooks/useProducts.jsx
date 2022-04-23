@@ -7,13 +7,12 @@ const useProducts = () => {
 
   useEffect(() => {
     axios.get("http://localhost:5000/products").then((res) => {
-      console.log(res.data);
       setProducts(res.data);
       setLoading(true);
     });
   }, []);
 
-  return { products, loading };
+  return { setProducts, products, loading };
 };
 
 export default useProducts;
