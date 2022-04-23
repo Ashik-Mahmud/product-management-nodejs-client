@@ -3,8 +3,10 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { auth } from "../../Firebase/Firebase.config";
+import useTitle from "../../Hooks/useTitle";
 import "../Pages.css";
 const CreateProduct = () => {
+  useTitle("Create product ");
   const formRef = useRef(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {

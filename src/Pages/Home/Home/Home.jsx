@@ -2,10 +2,12 @@ import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
 import useProducts from "../../../Hooks/useProducts";
+import useTitle from "../../../Hooks/useTitle";
 import Products from "../../Products/Products";
 import Hero from "../Hero/Hero";
 
 const Home = () => {
+  useTitle("Home ");
   const { setProducts, products } = useProducts();
   const handleSearch = async (search) => {
     if (!search) return toast.error("Search field is required.");

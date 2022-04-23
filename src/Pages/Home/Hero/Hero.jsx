@@ -16,6 +16,7 @@ const Hero = ({ handleSearch, getItems }) => {
     setTimeout(() => {
       localStorage.removeItem("search");
     }, 3600000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

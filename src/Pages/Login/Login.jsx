@@ -3,8 +3,10 @@ import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../App";
 import useFirebase from "../../Hooks/useFirebase";
+import useTitle from "../../Hooks/useTitle";
 import "./../Pages.css";
 const Login = () => {
+  useTitle("Login ");
   const { isAuth } = useContext(AppContext);
   const navigate = useNavigate();
   const location = useLocation();

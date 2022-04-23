@@ -4,8 +4,10 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
+import useTitle from "../../Hooks/useTitle";
 import "../Pages.css";
 const ManageProduct = () => {
+  useTitle("Manage product ");
   const navigate = useNavigate();
   const { products } = useProducts();
   const [currentUserProducts, setCurrentUserProducts] = useState([]);

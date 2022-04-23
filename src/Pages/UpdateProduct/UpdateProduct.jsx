@@ -5,8 +5,10 @@ import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
+import useTitle from "../../Hooks/useTitle";
 
 const UpdateProduct = () => {
+  useTitle("Update product");
   const { id } = useParams();
   const { products } = useProducts();
   const currentProduct = products.find((product) => product._id === id);
