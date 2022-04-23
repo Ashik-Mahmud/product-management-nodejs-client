@@ -1,8 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Hero.css";
-const Hero = ({ handleSearch }) => {
+const Hero = ({ handleSearch, getItems }) => {
   const [search, setSearch] = useState("");
+  const [searchTerms, setSearchTerms] = useState([]);
+  const items = getItems();
+  useEffect(() => {
+    const uniqueSearchTerms = items.filter(
+      (item, ind, arr) => arr.indexOf(item) !== ind
+    );
+    const uniqueArr = uniqueSearchTerms.filter(
+      (item, ind, arr) => arr.indexOf(item) === ind
+    );
+    setSearchTerms(uniqueArr);
 
+    setTimeout(() => {
+      localStorage.removeItem("search");
+    }, 3600000);
+  }, []);
   return (
     <div>
       <div className="container">
@@ -12,8 +26,9 @@ const Hero = ({ handleSearch }) => {
             <div className="search">
               <input
                 type="search"
-                onBlur={(event) => setSearch(event.target.value)}
+                onChange={(event) => setSearch(event.target.value)}
                 placeholder="Search Your Product"
+                value={search}
               />
               <button
                 className="btn btn-primary"
@@ -22,14 +37,16 @@ const Hero = ({ handleSearch }) => {
                 Search
               </button>
             </div>
-            <ul className="search-history">
-              <span>People Search - </span>
-              <li>Laptop</li>
-              <li>Accessories</li>
-              <li>Headphone</li>
-              <li>Computer</li>
-              <li>Airbud</li>
-            </ul>
+            {searchTerms.length > 0 && (
+              <ul className="search-history">
+                <span>People Search - </span>
+                {searchTerms?.slice(0, 5)?.map((term, ind) => (
+                  <li onClick={() => setSearch(term)} key={term + ind}>
+                    {term}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </div>
