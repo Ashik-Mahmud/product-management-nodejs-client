@@ -1,21 +1,26 @@
 import React from "react";
-
-const Product = () => {
+const Product = ({ productName, photoUrl, price, brand, buyingUrl }) => {
   return (
     <div className="product">
       <div className="product-image">
-        <img
-          src="https://m.media-amazon.com/images/I/71IlDSwE3+L._AC_SL1500_.jpg"
-          alt="product"
-        />
+        <img src={photoUrl} alt={productName} />
       </div>
       <div className="product-details">
-        <h3>Name goes here</h3>
+        <h3>{productName}</h3>
         <div className="inner-details">
-          <span className="colorize">54343 $</span>
-          <span>Brand</span>
+          <span className="colorize">{price} $</span>
+          <span>{brand}</span>
         </div>
-        <button className="btn btn-primary">Buy Now</button>
+        {buyingUrl ? (
+          <button
+            onClick={() => window.open(buyingUrl, "_blank")}
+            className="btn btn-primary"
+          >
+            Buy Now
+          </button>
+        ) : (
+          <small>No buying Button Available</small>
+        )}
       </div>
     </div>
   );
