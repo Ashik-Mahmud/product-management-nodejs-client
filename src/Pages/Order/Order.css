@@ -1,0 +1,15 @@
+.choose-product {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem 0rem;
+  gap: 3rem;
+}
+.choose-product p {
+  margin: 0.5rem 0rem;
+}
+input[readonly] {
+  background-color: #333;
+  user-select: none;
+}

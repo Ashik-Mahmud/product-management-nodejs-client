@@ -1,16 +1,24 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "../App";
 
 const useProducts = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const { user } = useContext(AppContext);
   useEffect(() => {
-    axios.get("http://localhost:5000/products").then((res) => {
-      setProducts(res.data);
-      setLoading(true);
-    });
-  }, []);
+    const getProducts = async () => {
+      try {
+        await axios.get(`http://localhost:5000/products`).then((res) => {
+          setProducts(res.data);
+          setLoading(true);
+        });
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getProducts();
+  }, [user]);
 
   return { setProducts, products, loading };
 };

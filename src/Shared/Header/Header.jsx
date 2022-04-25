@@ -13,6 +13,7 @@ const Header = () => {
     await signOut(auth).then(() => {
       toast.success("Sign Out Successfully done.");
       navigate("/login");
+      sessionStorage.removeItem("accessToken");
     });
   };
 
@@ -37,6 +38,9 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink to="/manage-product">Manage Product</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/manage-order">Manage Order</NavLink>
                 </li>
               </>
             )}

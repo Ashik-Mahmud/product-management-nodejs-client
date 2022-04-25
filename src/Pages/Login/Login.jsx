@@ -1,7 +1,13 @@
-import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import axios from "axios";
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signOut,
+} from "firebase/auth";
 import React, { useContext, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../App";
+import { auth } from "../../Firebase/Firebase.config";
 import useFirebase from "../../Hooks/useFirebase";
 import useTitle from "../../Hooks/useTitle";
 import "./../Pages.css";
@@ -28,6 +34,28 @@ const Login = () => {
     const provider = new FacebookAuthProvider();
     signInWithSocial(provider);
   };
+
+  useEffect(() => {
+    if (isAuth) {
+      axios
+        .post("http://localhost:5000/login", {
+          uid: auth?.currentUser?.uid,
+        })
+        .then((res) => {
+          if (!res?.data?.accessToken) {
+            signOut(auth);
+            navigate("/login");
+            sessionStorage.removeItem("accessToken");
+          } else {
+            sessionStorage.setItem("accessToken", res.data.accessToken);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [isAuth, navigate]);
+
   return (
     <div className="login-container">
       <div className="login-wrapper">

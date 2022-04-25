@@ -1,0 +1,17 @@
+.view-order .image {
+  height: 400px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 1rem 0rem;
+}
+.view-order .image img {
+  object-fit: contain;
+}
+.view-order ul {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0rem;
+}

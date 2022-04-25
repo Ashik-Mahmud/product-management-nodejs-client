@@ -46,3 +46,6 @@ li {
 .cursor-pointer {
   cursor: pointer;
 }
+.text-danger {
+  color: rgb(218, 84, 70);
+}
