@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { auth } from "../../Firebase/Firebase.config";
 import useProducts from "../../Hooks/useProducts";
@@ -10,6 +10,7 @@ import Product from "../Products/Product/Product";
 import "./Order.css";
 const Order = () => {
   useTitle("Place Order ");
+  const navigate = useNavigate();
   const { orderId } = useParams();
   const { products } = useProducts();
 
@@ -54,6 +55,7 @@ const Order = () => {
             "success"
           );
           event.target.reset();
+          navigate("/manage-order");
         }
       })
       .catch((err) => {
