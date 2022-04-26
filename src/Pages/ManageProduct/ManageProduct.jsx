@@ -21,15 +21,17 @@ const ManageProduct = () => {
   /* Handle delete items  */
   const handleDeleteProduct = async (id) => {
     console.log(id);
-    await axios.delete(`http://localhost:5000/products/${id}`).then((res) => {
-      if (res?.data?.acknowledged) {
-        toast.success("Delete products successfully done.");
-        const filterProduct = currentUserProducts.filter(
-          (product) => product._id !== id
-        );
-        setCurrentUserProducts(filterProduct);
-      }
-    });
+    await axios
+      .delete(`https://product-management-with.herokuapp.com/products/${id}`)
+      .then((res) => {
+        if (res?.data?.acknowledged) {
+          toast.success("Delete products successfully done.");
+          const filterProduct = currentUserProducts.filter(
+            (product) => product._id !== id
+          );
+          setCurrentUserProducts(filterProduct);
+        }
+      });
   };
 
   return (

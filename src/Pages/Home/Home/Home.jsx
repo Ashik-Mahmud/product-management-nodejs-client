@@ -12,7 +12,9 @@ const Home = () => {
   const handleSearch = async (search) => {
     if (!search) return toast.error("Search field is required.");
     await axios
-      .get(`http://localhost:5000/products/search?name=${search}`)
+      .get(
+        `https://product-management-with.herokuapp.com/products/search?name=${search}`
+      )
       .then((res) => {
         setProducts(res.data);
       });

@@ -45,7 +45,7 @@ const Order = () => {
     };
 
     await axios
-      .post("http://localhost:5000/order", orderData)
+      .post("https://product-management-with.herokuapp.com/order", orderData)
       .then((res) => {
         if (res.data.acknowledged) {
           Swal.fire(

@@ -13,11 +13,16 @@ const ManageOrder = () => {
     const getOrders = async () => {
       try {
         await axios
-          .get(`http://localhost:5000/order?uid=${auth?.currentUser?.uid}`, {
-            headers: {
-              authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
-            },
-          })
+          .get(
+            `https://product-management-with.herokuapp.com/order?uid=${auth?.currentUser?.uid}`,
+            {
+              headers: {
+                authorization: `Bearer ${sessionStorage.getItem(
+                  "accessToken"
+                )}`,
+              },
+            }
+          )
           .then((res) => {
             setOrders(res.data);
           })

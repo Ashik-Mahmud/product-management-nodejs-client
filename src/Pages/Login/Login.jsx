@@ -38,7 +38,7 @@ const Login = () => {
   useEffect(() => {
     if (isAuth) {
       axios
-        .post("http://localhost:5000/login", {
+        .post("https://product-management-with.herokuapp.com/login", {
           uid: auth?.currentUser?.uid,
         })
         .then((res) => {

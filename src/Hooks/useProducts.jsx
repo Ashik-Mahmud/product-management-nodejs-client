@@ -9,10 +9,12 @@ const useProducts = () => {
   useEffect(() => {
     const getProducts = async () => {
       try {
-        await axios.get(`http://localhost:5000/products`).then((res) => {
-          setProducts(res.data);
-          setLoading(true);
-        });
+        await axios
+          .get(`https://product-management-with.herokuapp.com/products`)
+          .then((res) => {
+            setProducts(res.data);
+            setLoading(true);
+          });
       } catch (err) {
         console.log(err);
       }

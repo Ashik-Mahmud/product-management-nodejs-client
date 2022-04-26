@@ -25,7 +25,10 @@ const UpdateProduct = () => {
     };
 
     await axios
-      .put(`http://localhost:5000/products/${id}`, newData)
+      .put(
+        `https://product-management-with.herokuapp.com/products/${id}`,
+        newData
+      )
       .then(function (response) {
         if (response?.data?.acknowledged) {
           toast.success(`Product Update successfully done.`);
