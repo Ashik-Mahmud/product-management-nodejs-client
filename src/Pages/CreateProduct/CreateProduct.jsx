@@ -19,7 +19,7 @@ const CreateProduct = () => {
     };
 
     await axios
-      .post("https://product-management-with.herokuapp.com/products", newData)
+      .post("https://product-management-server.onrender.com/products", newData)
       .then(function (response) {
         if (response?.data?.acknowledged) {
           toast.success(`Product Added successfully done.`);

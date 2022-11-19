@@ -46,7 +46,7 @@ const Order = () => {
     };
 
     await axios
-      .post("https://product-management-with.herokuapp.com/order", orderData)
+      .post("https://product-management-server.onrender.com/order", orderData)
       .then((res) => {
         if (res.data.acknowledged) {
           Swal.fire(

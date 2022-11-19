@@ -26,7 +26,7 @@ const UpdateProduct = () => {
 
     await axios
       .put(
-        `https://product-management-with.herokuapp.com/products/${id}`,
+        `https://product-management-server.onrender.com/products/${id}`,
         newData
       )
       .then(function (response) {

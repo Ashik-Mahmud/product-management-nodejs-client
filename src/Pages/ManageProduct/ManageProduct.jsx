@@ -22,7 +22,7 @@ const ManageProduct = () => {
   const handleDeleteProduct = async (id) => {
     console.log(id);
     await axios
-      .delete(`https://product-management-with.herokuapp.com/products/${id}`)
+      .delete(`https://product-management-server.onrender.com/products/${id}`)
       .then((res) => {
         if (res?.data?.acknowledged) {
           toast.success("Delete products successfully done.");

@@ -13,7 +13,7 @@ const Home = () => {
     if (!search) return toast.error("Search field is required.");
     await axios
       .get(
-        `https://product-management-with.herokuapp.com/products/search?name=${search}`
+        `https://product-management-server.onrender.com/products/search?name=${search}`
       )
       .then((res) => {
         setProducts(res.data);

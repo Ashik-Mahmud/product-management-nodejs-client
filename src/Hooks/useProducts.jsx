@@ -10,7 +10,7 @@ const useProducts = () => {
     const getProducts = async () => {
       try {
         await axios
-          .get(`https://product-management-with.herokuapp.com/products`)
+          .get(`https://product-management-server.onrender.com/products`)
           .then((res) => {
             setProducts(res.data);
             setLoading(true);

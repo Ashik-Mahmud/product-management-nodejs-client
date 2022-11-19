@@ -14,7 +14,7 @@ const ManageOrder = () => {
       try {
         await axios
           .get(
-            `https://product-management-with.herokuapp.com/order?uid=${auth?.currentUser?.uid}`,
+            `https://product-management-server.onrender.com/order?uid=${auth?.currentUser?.uid}`,
             {
               headers: {
                 authorization: `Bearer ${sessionStorage.getItem(
